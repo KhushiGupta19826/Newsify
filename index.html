@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsify</title>
+    <link rel = stylesheet href = "style.css">
+</head>
+<body>
+<div class="main-content">
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo"><img src = "assests/logo.png"></div>
+      
+      <div class="nav-links">
+        <div class="nav-item" id="techBtn">Technology</div>
+        <div class="nav-item" id="sportsBtn">Sports</div>
+        <div class="nav-item" id="indiaBtn">India</div>
+        <div class="nav-item" id="politicsBtn">Politics</div>
+        <div class="nav-item" id="businessBtn">Business</div>
+        <div class="nav-item" id="bookmarksBtn">Bookmarks</div>
+      </div>
+
+      <div class="nav-controls">
+        <div class="search-container">
+          <input type="text" class="search-input" id="searchInput" placeholder="Search news...">
+          <button class="search-btn" id="searchBtn">Search</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="app-layout">
+
+    <aside class="weather-sidebar">
+      <div class="weather-card">
+        <h2>Weather</h2>
+        
+        <div class="weather-input-container">
+          <input type="text" id="cityInput" placeholder="Enter city name">
+          <button id="weatherBtn">Get Weather</button>
+        </div>
+        
+        <div id="weatherContent">
+          <p class="weather-location">Delhi</p>
+          <p class="weather-temp">25°C</p>
+          <p class="weather-desc">Clear sky</p>
+          <p>Humidity: 65%</p>
+          <p>Wind: 10 km/h</p>
+        </div>
+      </div>
+    </aside>
+
+
+    <main class="news-section">
+      <div class="section-header">
+        <h1 class="section-title">Latest News</h1>
+        <p class="section-subtitle">Stay updated with the latest headlines</p>
+      </div>
+
+      <div id="newsGrid" class="news-grid"></div>
+
+      <div id="emptyState" class="empty-state" style="display: none;">
+        <p>No news found. Try searching again.</p>
+      </div>
+    </main>
+  </div>
+</div>
+
+
+<template id="newsCardTemplate">
+  <article class="news-card">
+    <img class="news-image" src="" alt="News image">
+    <div class="news-content">
+      <h3 class="news-title"></h3>
+      <p class="news-description"></p>
+      <a href="#" class="read-more" target="_blank">Read More</a>
+    </div>
+  </article>
+</template>
+
+
+</body>
+</html>
