@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infospark - Stay Connected, Stay Informed</title>
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  padding: 10px; 
+}
+
+.hero {
+  background: #fff;
+  border-radius: 12px;
+  padding: 50px 40px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  overflow: hidden; /
+}
+
+.logo {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.feature {
+  background: #667eea;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+  flex: 1 1 auto;       
+  min-width: 100px;     
+  max-width: 200px;     
+}
+
+.btn-primary {
+  background: #667eea;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #5465d1;
+}
+
+.btn-secondary {
+  background: #fff;
+  border: 2px solid #667eea;
+  color: #667eea;
+}
+
+.btn-secondary:hover {
+  background: #667eea;
+  color: #fff;
+}
+
+.btn.loading {
+  opacity: 0.8;
+  pointer-events: none;
+  position: relative;
+}
+
+.btn.loading::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 30px 20px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  .btn-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .btn {
+    width: 100%;  
+    min-width: unset;
+    max-width: unset;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="logo">⚡</div>
+    <h1>Infospark</h1>
+    <p class="tagline">Your smart companion for local news and weather updates. Stay connected, stay informed.</p>
+
+    <div class="features">
+      <span class="feature">📰 Local News</span>
+      <span class="feature">🌤️ Weather</span>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="navigateWithLoading(this, 'login.html')">🚀 Get Started</button>
+      <button class="btn btn-secondary" onclick="navigateWithLoading(this, 'signup.html')">✨ Join Now</button>
+    </div>
+  </div>
+
+  <script>
+    function navigateWithLoading(button, page) {
+      button.classList.add('loading');
+      button.disabled = true;
+      setTimeout(() => {
+        window.location.href = page;
+      }, 1200);
+    }
+  </script>
+</body>
+</html>

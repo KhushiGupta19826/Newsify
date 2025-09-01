@@ -1,120 +1,311 @@
-/* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f9;
-    color: #333;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
 }
 
-/* Navbar */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+
+.weather-sidebar {
+  width: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  color: white;
+}
+
+.weather-search {
+  margin-bottom: 20px;
+}
+
+.weather-search input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 16px;
+}
+
+.weather-search input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.weather-search button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #764ba2;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.weather-search button:hover {
+  background: #667eea;
+}
+
+.weather-info {
+  text-align: center;
+}
+
+.weather-info h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.temperature {
+  font-size: 48px;
+  margin: 20px 0;
+}
+
+.weather-details {
+  margin-top: 20px;
+}
+
+.weather-details p {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.main-content {
+  flex: 1;
+  background: white;
+  overflow-y: auto;
+}
+
+
 .navbar {
-    position: sticky;
-    top: 0;
-    background: #222;
-    color: white;
-    padding: 10px 20px;
-    z-index: 1000;
+  background: #764ba2;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.navbar h1 {
+  color: white;
+  font-size: 24px;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+.nav-categories {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+.nav-categories button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
 }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
+.nav-categories button:hover,
+.nav-categories button.active {
+  background: #667eea;
 }
 
-.nav-links a:hover {
-    color: #ff9800;
+.news-search {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-/* Search box inside navbar */
-.search-box {
-    display: flex;
-    gap: 5px;
+.news-search input {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
-.search-box input {
-    padding: 5px;
-    border-radius: 3px;
-    border: none;
+.news-search button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  background: #667eea;
+  color: white;
+  cursor: pointer;
 }
 
-.search-box button {
-    padding: 5px 10px;
-    border: none;
-    background: #ff9800;
-    color: white;
-    border-radius: 3px;
-    cursor: pointer;
+
+.news-content {
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.search-box button:hover {
-    background: #e68900;
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
 }
 
-/* Sections */
-.section {
-    padding: 20px;
+.news-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  max-width: 100%;   
+  overflow: hidden;  
+  display: flex;
+  flex-direction: column;
 }
 
-h2 {
-    margin-bottom: 15px;
+.news-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* News Cards */
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+.news-card img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.news-card h3 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 18px;
+  word-wrap: break-word;   
+}
+
+.news-card p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+.news-meta {
+  margin-top: 10px;
+  color: #888;
+  font-size: 12px;
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 18px;
+  color: #666;
+}
+
+
+@media (max-width: 1024px) {
+  .news-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .weather-sidebar {
+    width: 250px;
+  }
+
+  .navbar h1 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .weather-sidebar {
+    width: 100%;
+    order: 2;
+  }
+
+  .main-content {
+    width: 100%;
+    order: 1;
+  }
+
+  .news-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
     gap: 15px;
-}
+  }
 
-.card {
-    background: white;
-    border-radius: 5px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.card img {
-    max-width: 100%;
-    border-radius: 5px;
-}
-
-/* Weather */
-#weatherContainer {
-    margin-top: 15px;
-    padding: 15px;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Footer */
-footer {
+  .navbar h1 {
     text-align: center;
-    padding: 15px;
-    background: #222;
-    color: white;
-    margin-top: 20px;
+    width: 100%;
+  }
+
+  .nav-categories {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .news-search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .news-search input {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .news-grid {
+    grid-template-columns: 1fr; /
+  }
+
+  .news-card img {
+    height: 120px; 
+  }
+
+  .news-card h3 {
+    font-size: 14px;
+  }
+
+  .news-card p {
+    font-size: 12px;
+  }
+
+  .nav-categories button {
+    flex: 1;
+    text-align: center;
+  }
+
+  .news-search {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .news-search button {
+    width: 100%;
+  }
 }
